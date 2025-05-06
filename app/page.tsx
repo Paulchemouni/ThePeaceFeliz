@@ -74,7 +74,7 @@ export default function Home() {
               </div>
 
               {/* Speech bubble with the provided SVG - positioned with a small gap and enlarged */}
-              <div className="absolute top-1/4 left-[55%] w-[55%] h-auto">
+              <div className="absolute top-1/4 left-[52%] w-[55%] h-auto">
                 <div className="relative w-full h-full">
                   {/* SVG container */}
                   <div className="relative w-full">
