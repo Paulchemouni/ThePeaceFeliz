@@ -24,9 +24,32 @@ export default function Home() {
 
   return (
     <main className="min-h-screen flex flex-col bg-stone-50 text-stone-800">
-      {/* Minimal Banner */}
-      <header className="w-full py-8 px-6 border-b border-stone-200">
-        <h1 className="text-2xl font-light tracking-wide text-center">THE PEACE FELIZ</h1>
+      {/* Frosted glass banner with texture and shadow */}
+      <header className="relative w-full py-10 px-6 overflow-hidden">
+        {/* Background color and texture */}
+        <div className="absolute inset-0 bg-yellow-100 opacity-40"></div>
+
+        {/* Noise texture overlay */}
+        <div
+          className="absolute inset-0 opacity-10"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+            backgroundSize: "200px 200px",
+          }}
+        ></div>
+
+        {/* Frosted glass effect */}
+        <div className="absolute inset-0 backdrop-blur-sm"></div>
+
+        {/* Shadow effect */}
+        <div className="absolute inset-x-0 bottom-0 h-4 bg-gradient-to-t from-black/10 to-transparent"></div>
+
+        {/* Content */}
+        <div className="relative">
+          <h1 className="text-2xl font-light tracking-wide text-center text-stone-800 drop-shadow-sm">
+            THE PEACE FELIZ
+          </h1>
+        </div>
       </header>
 
       {/* Main content with ample whitespace */}
@@ -97,12 +120,12 @@ export default function Home() {
 
             <Button
               onClick={handleDownload}
-              className="w-full py-6 bg-yellow-400 hover:bg-yellow-900 text-white rounded-sm font-light tracking-wide"
+              className="w-full py-6 bg-yellow-400 hover:bg-yellow-500 text-black rounded-sm font-light tracking-wide shadow-md"
             >
               <Download className="mr-2 h-4 w-4" /> Download Stencil
             </Button>
 
-            <p className="text-xs text-stone-400 text-center mt-4">Share your creation with #PeaceFeliz</p>
+            <p className="text-xs text-stone-500 text-center mt-4">Share your creation with #PeaceFeliz</p>
           </div>
         </div>
       </div>
