@@ -1,4 +1,4 @@
-# [The Peace Feliz](www.the-peace-feliz.vercel.app)
+# [The Peace Feliz](https://www.the-peace-feliz.vercel.app)
 
 *Automatically synced with your [v0.dev](https://v0.dev) deployments*
 
