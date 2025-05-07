@@ -1,10 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-body {
-  font-family: Arial, Helvetica, sans-serif;
-}
+@import url("https://fonts.cdnfonts.com/css/stencil");
 
 @layer utilities {
   .text-balance {
@@ -105,4 +102,10 @@ body {
   .backdrop-blur-sm {
     background-color: rgba(254, 249, 195, 0.8);
   }
+}
+
+/* Stencil font class */
+.font-stencil {
+  font-family: "Stencil", sans-serif;
+  letter-spacing: 0.05em;
 }

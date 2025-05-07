@@ -24,33 +24,56 @@ export default function Home() {
 
   return (
     <main className="min-h-screen flex flex-col bg-stone-50 text-stone-800">
-      {/* Frosted glass banner with texture and shadow */}
-      <header className="relative w-full py-10 px-6 overflow-hidden">
-        {/* Background color and texture */}
-        <div className="absolute inset-0 bg-yellow-100 opacity-40"></div>
+      {/* Banner container with shadow */}
+      <div className="relative w-full">
+        {/* Banner with background image and frosted glass effect */}
+        <header className="relative w-full py-12 px-6 overflow-hidden z-10">
+          {/* Background image */}
+          <div className="absolute inset-0 z-0">
+            <Image
+              src="/images/banner-background.jpeg"
+              alt="Banner background"
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
 
-        {/* Noise texture overlay */}
+          {/* Strong frosted glass effect over the image */}
+          <div className="absolute inset-0 bg-white/30 backdrop-blur-md z-10"></div>
+
+          {/* Noise texture overlay for added depth */}
+          <div
+            className="absolute inset-0 opacity-5 z-20"
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+              backgroundSize: "200px 200px",
+            }}
+          ></div>
+
+          {/* Fading bottom border gradient */}
+          <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-b from-white/0 to-white/30 backdrop-blur-[2px] z-30"></div>
+
+          {/* Content */}
+          <div className="relative z-40">
+            <h1 className="text-3xl tracking-wide text-center text-stone-800 drop-shadow-sm font-stencil">
+              THE PEACE FELIZ
+            </h1>
+          </div>
+        </header>
+
+        {/* Softened shadow with blur effect */}
         <div
-          className="absolute inset-0 opacity-10"
+          className="absolute w-full h-12 top-[calc(100%-6px)] left-0 z-0 overflow-hidden"
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
-            backgroundSize: "200px 200px",
+            filter: "blur(4px)",
+            maskImage: "linear-gradient(to bottom, black 30%, transparent 100%)",
+            WebkitMaskImage: "linear-gradient(to bottom, black 30%, transparent 100%)",
           }}
-        ></div>
-
-        {/* Frosted glass effect */}
-        <div className="absolute inset-0 backdrop-blur-sm"></div>
-
-        {/* Shadow effect */}
-        <div className="absolute inset-x-0 bottom-0 h-4 bg-gradient-to-t from-black/10 to-transparent"></div>
-
-        {/* Content */}
-        <div className="relative">
-          <h1 className="text-2xl font-light tracking-wide text-center text-stone-800 drop-shadow-sm">
-            THE PEACE FELIZ
-          </h1>
+        >
+          <div className="w-full h-full bg-gradient-to-b from-black/20 via-black/10 to-transparent"></div>
         </div>
-      </header>
+      </div>
 
       {/* Main content with ample whitespace */}
       <div className="flex-grow flex flex-col md:flex-row p-8 md:p-16 gap-12 max-w-6xl mx-auto w-full">
@@ -90,7 +113,7 @@ export default function Home() {
                     {/* Text overlay positioned inside the bubble */}
                     <div className="absolute inset-0 flex items-center justify-center">
                       <div className="w-3/4 h-3/4 flex items-center justify-center">
-                        <p className="text-center font-light tracking-wide break-words max-w-full">
+                        <p className="text-center tracking-wide break-words max-w-full font-stencil">
                           {customText || "Your text here"}
                         </p>
                       </div>
